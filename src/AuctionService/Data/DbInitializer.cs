@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService.Data;
 
-public class DbInitializer
+public static class DbInitializer
 {
 	public static void InitDb(WebApplication app)
 	{
@@ -12,11 +12,11 @@ public class DbInitializer
 		SeedData(scope.ServiceProvider.GetService<AuctionDbContext>());
 	}
 
-	private static void SeedData(AuctionDbContext context)
+	private static void SeedData(AuctionDbContext? context)
 	{
 		context?.Database.Migrate();
 
-		if (context.Auctions.Any())
+		if (context != null && context.Auctions.Any())
 		{
 			Console.WriteLine("There is already data in the database.");
 			return;
@@ -207,8 +207,8 @@ public class DbInitializer
 					}
 			};
 
-		context.AddRange(auctions);
+		context?.AddRange(auctions);
 
-		context.SaveChanges();
+		context?.SaveChanges();
 	}
 }
