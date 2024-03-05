@@ -57,7 +57,7 @@ namespace AuctionService.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Auctions");
+                    b.ToTable("Auctions", (string)null);
                 });
 
             modelBuilder.Entity("AuctionService.Entities.Item", b =>
@@ -92,7 +92,7 @@ namespace AuctionService.Data.Migrations
                     b.HasIndex("AuctionId")
                         .IsUnique();
 
-                    b.ToTable("Items");
+                    b.ToTable("Items", (string)null);
                 });
 
             modelBuilder.Entity("AuctionService.Entities.Item", b =>
