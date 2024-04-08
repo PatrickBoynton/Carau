@@ -36,7 +36,7 @@ public static class Config
 						ClientSecrets = { new Secret("Not a secret!".Sha256()) },
 						AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
 						RequirePkce = false,
-						RedirectUris = { "http://localhost:3000/auth/callback/id-server" },
+						RedirectUris = { "http://localhost:3000/api/auth/callback/id-server" },
 						AllowedScopes = { "openid", "profile", "Carau" },
 						// For development purposes only
 						AccessTokenLifetime = 3600 * 24 * 30

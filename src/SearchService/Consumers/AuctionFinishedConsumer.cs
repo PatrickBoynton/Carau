@@ -16,5 +16,9 @@ public class AuctionFinishedConsumer : IConsumer<AuctionFinished>
 			auction.Winner = context.Message.Winner;
 			auction.SoldAmount = (int)context.Message.Amount;
 		}
+
+		auction.Status = "Finished";
+
+		await auction.SaveAsync();
 	}
 }
