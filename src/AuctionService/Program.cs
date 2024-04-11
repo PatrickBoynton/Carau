@@ -22,7 +22,7 @@ builder.Services.AddMassTransit(x =>
 {
 	x.AddEntityFrameworkOutbox<AuctionDbContext>(options =>
 	{
-		options.QueryDelay = TimeSpan.FromSeconds(100);
+		options.QueryDelay = TimeSpan.FromMinutes(6);
 		options.UsePostgres();
 		options.UseBusOutbox();
 	});

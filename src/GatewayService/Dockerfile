@@ -12,7 +12,6 @@ COPY src/IdentityService/IdentityService.csproj src/IdentityService/IdentityServ
 RUN dotnet restore Carau.sln
 
 COPY src/GatewayService/. src/GatewayService/
-COPY src/Contracts/. src/Contracts/
 WORKDIR /app/src/GatewayService
 RUN dotnet publish -c Release -o /app/src/out
 

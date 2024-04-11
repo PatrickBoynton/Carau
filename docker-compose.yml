@@ -33,10 +33,10 @@ services:
             - ASPNETCORE_ENVIRONMENT=Development
             - ASPNETCORE_URLS=http://+:80
             - RabbitMq__Host=rabbitmq
-            - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=auction;Username=postgres;Password=safepass1
+            - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=auction;Username=postgres;Password=safepass1
             - IdentityServiceUrl=http://identity-svc
         ports:
-            - "5001:80"
+            - "5281:80"
         depends_on:
             - postgres
             - rabbitmq
@@ -52,7 +52,7 @@ services:
             - ConnectionStrings__MongoDbConnection=mongodb://root:safepass1@mongodb:27017
             - AuctionServiceUrl=http://auction-svc
         ports:
-            - "5281:80"
+            - "5169:80"
         depends_on:
             - mongodb
             - rabbitmq
@@ -62,7 +62,7 @@ services:
             context: .
             dockerfile: src/IdentityService/Dockerfile
         environment:
-            - ASPNETCORE_ENVIRONMENT=Docker
+            - ASPNETCORE_ENVIRONMENT=Development
             - ASPNETCORE_URLS=http://+:80
             - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=identity;Username=postgres;Password=safepass1
         ports:
@@ -77,8 +77,6 @@ services:
         environment:
             - ASPNETCORE_ENVIRONMENT=Docker
             - ASPNETCORE_URLS=http://+:80
-            - AuctionServiceUrl=http://auction-svc
-            - SearchServiceUrl=http://search-svc
             - IdentityServiceUrl=http://identity-svc
         ports:
             - "5014:80"

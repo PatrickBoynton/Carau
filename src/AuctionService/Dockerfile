@@ -28,4 +28,5 @@ COPY --from=build /app/src/out ./
 ENTRYPOINT ["dotnet", "AuctionService.dll"]
 
 # Build the image
+# Not part of the Dockerfile
 # docker build -f src/AuctionService/Dockerfile -t auction-service .
