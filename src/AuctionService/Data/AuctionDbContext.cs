@@ -14,7 +14,7 @@ public class AuctionDbContext(DbContextOptions<AuctionDbContext> options)
 		base.OnModelCreating(modelBuilder);
 
 		modelBuilder.AddInboxStateEntity();
-		modelBuilder.AddOutboxStateEntity();
+		modelBuilder.AddOutboxMessageEntity();
 		modelBuilder.AddOutboxStateEntity();
 	}
 }
