@@ -56,7 +56,7 @@ services:
         depends_on:
             - mongodb
             - rabbitmq
-    idenity-svc:
+    identity-svc:
         image: identity-svc:latest
         build:
             context: .

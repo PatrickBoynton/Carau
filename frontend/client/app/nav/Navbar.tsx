@@ -1,7 +1,11 @@
 import { Search } from "@/app/nav/Search"
 import { Logo } from "@/app/nav/Logo"
+import { LoginButton } from "@/app/nav/LoginButton"
+import { getCurrentUser } from "@/app/actions/authActions"
+import { UserActions } from "@/app/nav/UserActions"
 
-export const Navbar = () => {
+export const Navbar = async () => {
+	const user = await getCurrentUser()
 	return (
 		<header
 			className="sticky
@@ -15,7 +19,7 @@ export const Navbar = () => {
 					       shadow-md">
 			<Logo />
 			<Search />
-			<div>Login</div>
+			{user ? <UserActions user={user} /> : <LoginButton />}
 		</header>
 	)
 }

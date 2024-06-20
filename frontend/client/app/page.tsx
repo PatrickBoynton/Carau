@@ -1,6 +1,6 @@
 import { Listings } from "@/app/auctions/Listings"
 
-export default function Home() {
+const Home = () => {
 	return (
 		<>
 			<h1 className="text-3xl font-semibold">
@@ -10,3 +10,5 @@ export default function Home() {
 		</>
 	)
 }
+
+export default Home
